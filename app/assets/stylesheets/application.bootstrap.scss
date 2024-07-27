@@ -31,11 +31,13 @@
 
 .logout-link {
 	position: absolute;
+	width: 5.5rem;
 	right: 1.5rem;
 	background-color: #dc3545;
 	border-radius: 10px;
 	.nav-link {
 		color: #ffffff;
+		text-align: center;
 		&:hover {
 			background-color: #bb2d3b;
 			color: #ffffff;
