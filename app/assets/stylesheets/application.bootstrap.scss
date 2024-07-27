@@ -7,11 +7,11 @@
 }
 
 .navbar .nav-link {
-	color: #20c1aa; /* Ensures nav links are also white */
+	color: #20b2aa; /* Ensures nav links are also white */
 	border-radius: 10px;
 	&:hover {
-		background-color: #ffffff;
-		color: #333;
+		background-color: #20b2aa;
+		color: #ffffff;
 		border-radius: 10px;
 	}
 }
@@ -19,12 +19,29 @@
 	position: absolute;
 	right: 7rem;
 	.nav-link {
-		color: #333;
+		border-radius: 4px;
+		background-color: transparent !important;
+		color: #a3a3a3;
+		&:hover {
+			border-radius: 4px;
+			color: #a3a3a3;
+		}
 	}
 }
+
 .logout-link {
 	position: absolute;
 	right: 1.5rem;
+	background-color: #dc3545;
+	border-radius: 10px;
+	.nav-link {
+		color: #ffffff;
+		&:hover {
+			background-color: #bb2d3b;
+			color: #ffffff;
+			border-radius: 10px;
+		}
+	}
 }
 
 .navbar .navbar-brand {
@@ -47,8 +64,10 @@
 }
 
 .btn-success-custom {
+	color: #ffffff;
 	background-color: #20c2aa;
 	&:hover {
 		background-color: #20b2aa;
+		color: #ffffff;
 	}
 }

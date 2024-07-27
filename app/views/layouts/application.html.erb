@@ -7,9 +7,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags 'application' %>
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="mb-4">
@@ -33,9 +33,9 @@
             <li class="nav-item logout-link">
               <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
             </li>
-            <div class="user-details">
-              <span class="nav-link bg-light">Logged in as <strong><%= current_user.email %></strong></span>
-            </div>
+            <li class="user-details">
+              <span class="nav-link bg-light fw-lighter">Logged in as <%= current_user.email %></span>
+            </li>
           <% else %>
             <li class="nav-item">
               <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
