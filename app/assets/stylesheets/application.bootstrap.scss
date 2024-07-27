@@ -17,14 +17,19 @@
 }
 .user-details {
 	position: absolute;
-	right: 1.5rem;
+	right: 7rem;
 	.nav-link {
 		color: #333;
 	}
 }
+.logout-link {
+	position: absolute;
+	right: 1.5rem;
+}
 
 .navbar .navbar-brand {
 	color: #ffffff; /* Ensures the brand/logo text is white */
+	font-size: x-large;
 }
 
 .navbar .navbar-toggler-icon {

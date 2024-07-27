@@ -10,7 +10,7 @@
 <body>
   <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center">
-    <h3 class="mb-4">Blog Posts</h3>
+    <h4 class="mb-4">Blog Posts</h4>
       <% if user_signed_in? %>
         <%= link_to new_post_path, class: 'btn btn-success-custom mb-4' do %>
           <i class="fa fa-plus"></i> New Post
@@ -26,7 +26,7 @@
             <div class="text-start">
               <h5 class="mb-1 post-title"><%= link_to post.title, post_path(post) %></h5>
               <p class="mb-1"><%= truncate(post.content, length: 150) %></p>
-              <small class="secondary-text">Published on <%= post.published_date.strftime('%B %d, %Y') %></small>
+              <small class="secondary-text fst-italic">Published on <%= post.published_date.strftime('%B %d, %Y') %></small>
             </div>
             <% if post.user == current_user %>
               <div class="text-end gap-2 d-flex">
