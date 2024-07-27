@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Post</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="mb-4">New Post</h1>
+
+    <%= form_with(model: @post, local: true, html: {class: 'form-horizontal'}) do |form| %>
+      <% if @post.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <h4><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h4>
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group mb-2">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control', autofocus: true %>
+        <% if @post.errors[:title].any? %>
+          <div class="text-danger"><%= @post.errors[:title].first %></div>
+        <% end %>
+      </div>
+
+      <div class="form-group mb-2">
+        <%= form.label :author %>
+        <%= form.text_field :author, class: 'form-control' %>
+        <% if @post.errors[:author].any? %>
+          <div class="text-danger"><%= @post.errors[:author].first %></div>
+        <% end %>
+      </div>
+
+      <div class="form-group mb-2">
+        <%= form.label :content %>
+        <%= form.text_area :content, rows: 5, class: 'form-control' %>
+        <% if @post.errors[:content].any? %>
+          <div class="text-danger"><%= @post.errors[:content].first %></div>
+        <% end %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :status %>
+        <%= form.select :status, options_for_select(['draft', 'published']), {}, class: 'form-control' %>
+        <% if @post.errors[:status].any? %>
+          <div class="text-danger"><%= @post.errors[:status].first %></div>
+        <% end %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :creation_date %>
+        <%= form.datetime_select :creation_date, class: 'form-control' %>
+        <% if @post.errors[:creation_date].any? %>
+          <div class="text-danger"><%= @post.errors[:creation_date].first %></div>
+        <% end %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= form.label :published_date %>
+        <%= form.datetime_select :published_date, class: 'form-control' %>
+        <% if @post.errors[:published_date].any? %>
+          <div class="text-danger"><%= @post.errors[:published_date].first %></div>
+        <% end %>
+      </div>
+
+      <div class="form-group d-flex justify-content-start align-items-center gap-3">
+        <%= form.submit 'Create Post', class: 'btn btn-success-custom mt-3' %>
+        <%= link_to 'Back', posts_path, class: 'btn btn-dark mt-3' %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+@import 'bootstrap';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+
+.navbar {
+	color: #ffffff; /* Sets text color to white */
+	padding: 16px;
+}
+
+.navbar .nav-link {
+	color: #20c1aa; /* Ensures nav links are also white */
+	border-radius: 10px;
+	&:hover {
+		background-color: #ffffff;
+		color: #333;
+		border-radius: 10px;
+	}
+}
+.user-details {
+	position: absolute;
+	right: 1.5rem;
+	.nav-link {
+		color: #333;
+	}
+}
+
+.navbar .navbar-brand {
+	color: #ffffff; /* Ensures the brand/logo text is white */
+}
+
+.navbar .navbar-toggler-icon {
+	filter: invert(
+		100%
+	); /* Optional: Inverts the toggler icon color for better visibility on a white background */
+}
+
+.post-title > a {
+	color: #20c1aa;
+}
+
+.secondary-text {
+	color: grey;
+}
+
+.btn-success-custom {
+	background-color: #20c2aa;
+	&:hover {
+		background-color: #20b2aa;
+	}
+}

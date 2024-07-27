@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @post.title %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="mb-4"><%= @post.title %></h1>
+    <p><strong>Author:</strong> <%= @post.author %></p>
+    <p><strong>Content:</strong></p>
+    <div class="mb-4">
+      <%= @post.content %>
+    </div>
+    <p><strong>Status:</strong> <%= @post.status %></p>
+    <p><strong>Created on:</strong> <%= @post.creation_date.strftime("%B %d, %Y %I:%M %p") %></p>
+    <p><strong>Published on:</strong> <%= @post.published_date.strftime("%B %d, %Y %I:%M %p") %></p>
+    
+    <% if @post.comments.any? %>
+      <h5 class="mt-5">Comments</h5>
+      <div id="comments">
+        <% @post.comments.each do |comment| %>
+          <div class="comment mb-3">
+            <h6 class="secondary-text font-bold"><%= comment.name %></h6>
+            <p><%= comment.text %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <h5 class="mt-1">Add a Comment</h5>
+    <%= form_with model: [@post, Comment.new], local: true do |form| %>
+
+      <div class="form-group">
+        <%= form.label :text, 'Comment' %>
+        <%= form.text_area :text, class: 'form-control' %>
+      </div>
+
+      <div class="d-flex justify-content-start align-items-center gap-3">
+        <%= form.submit 'Add Comment', class: 'btn btn-success-custom mt-3 mb-3' %>
+        <%= link_to 'Back', posts_path, class: 'btn btn-dark mt-3 mb-3' %>
+      </div>
+      <% end %>    
+  </div>
+</body>
+</html>
