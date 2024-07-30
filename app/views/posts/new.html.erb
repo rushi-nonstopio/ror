@@ -49,7 +49,7 @@
 
       <div class="form-group mb-3">
         <%= form.label :status %>
-        <%= form.select :status, options_for_select(['draft', 'published']), {}, class: 'form-control' %>
+        <%= form.select :status, options_for_select([['Draft', 'draft'], ['Published', 'published']]), {}, class: 'form-control' %>
         <% if @post.errors[:status].any? %>
           <div class="text-danger"><%= @post.errors[:status].first %></div>
         <% end %>
